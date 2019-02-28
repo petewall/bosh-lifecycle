@@ -1,0 +1,16 @@
+---
+name: lifecycle-job
+
+templates:
+    pre-start.erb:   bin/pre-start
+    start.erb:       bin/start
+    post-start.erb:  bin/post-start
+    post-deploy.erb: bin/post-deploy
+
+    drain.erb:       bin/drain
+    stop.erb:        bin/stop
+    post-stop.erb:   bin/post-stop
+
+packages: []
+
+properties: {}

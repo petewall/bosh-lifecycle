@@ -1,0 +1,11 @@
+#!/bin/bash
+echo `date` "<%= spec.name %>:<%= spec.index %> start" >> /var/vcap/sys/log/lifecycle-job/out.log
+/sbin/start-stop-daemon \
+  --pidfile "/var/vcap/sys/run/lifecycle-job/pid" \
+  --make-pidfile \
+  --chuid vcap:vcap \
+  --start \
+  --background \
+  --exec /usr/bin/tail \
+  -- -f /dev/null
+

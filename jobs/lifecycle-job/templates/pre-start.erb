@@ -1,0 +1,10 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/lifecycle-job
+LOG_DIR=/var/vcap/sys/log/lifecycle-job
+
+mkdir -p $RUN_DIR $LOG_DIR
+chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+echo `date` "<%= spec.name %>:<%= spec.index %> pre-start" >> ${LOG_DIR}/out.log
+

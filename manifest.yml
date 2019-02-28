@@ -1,0 +1,31 @@
+---
+name: bosh-lifecycle-deployment
+
+releases:
+- name: bosh-lifecycle
+  version: latest
+
+stemcells:
+  - alias: "default"
+    os: "ubuntu-xenial"
+    version: latest
+
+update:
+  canaries: 1
+  max_in_flight: 1
+  canary_watch_time: 1000-30000
+  update_watch_time: 1000-30000
+
+instance_groups:
+  - name: bosh-lifecycle-group
+    vm_type: ((vm_type))
+    stemcell: default
+    instances: 4
+    azs:
+    - ((az_name))
+    networks:
+    - name: ((network_name))
+    jobs:
+      - name: lifecycle-job
+        release: bosh-lifecycle
+

@@ -1,0 +1,7 @@
+check process lifecycle-job
+  with pidfile /var/vcap/sys/run/lifecycle-job/pid
+  start program "/var/vcap/jobs/lifecycle-job/bin/start"
+  stop program "/var/vcap/jobs/lifecycle-job/bin/stop"
+  group vcap
+
+
